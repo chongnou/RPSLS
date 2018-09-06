@@ -25,7 +25,7 @@ namespace RPSLS
 
         public void GetScore()
         {
-            Console.WriteLine("The player " + name + " has a score of " + score + ".");
+            Console.WriteLine("Nice! " + name + " has a score of " + score + ".");
         }
 
         public abstract string Gesture();

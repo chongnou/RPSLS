@@ -22,7 +22,19 @@ namespace RockPaperScissorLizardSpock
 
         public void MainMenu()
         {
-            Console.WriteLine("--Welcome to RPSLS!--");
+            Console.WriteLine("Welcome to RPSLS!\n");
+            Console.WriteLine("Here are the rules:\n");
+            Console.WriteLine("Rock crushes Scissors");
+            Console.WriteLine("Scissors cuts Paper");
+            Console.WriteLine("Paper covers Rock");
+            Console.WriteLine("Rock crushes Lizard");
+            Console.WriteLine("Lizard poisons Spock");
+            Console.WriteLine("Spock smashes Scissors");
+            Console.WriteLine("Scissors decapitates Lizard");
+            Console.WriteLine("Lizard eats Paper");
+            Console.WriteLine("Paper disproves Spock");
+            Console.WriteLine("Spock vaporizes Rock ");
+            Console.WriteLine("\nThe game will be best out of 3.");
             Players();
             PlayWinner();
         }
@@ -32,7 +44,7 @@ namespace RockPaperScissorLizardSpock
             bool continueLooping = true;
             while (continueLooping)
             {
-                Console.WriteLine("\nOne player or Two players? \n1) One \n2) Two");
+                Console.WriteLine("\nOne player or Two players? \n1 = One \n2 = Two");
                 numberOfPlayers= Console.ReadLine();
                 if (numberOfPlayers.ToLower() == "1")
                 {
@@ -41,7 +53,7 @@ namespace RockPaperScissorLizardSpock
                     playerTwo = new Computer();
                     continueLooping = false;
                 }
-                else if (numberOfPlayers.ToLower() == "b2")
+                else if (numberOfPlayers.ToLower() == "2")
                 {
                     EnterName(numberOfPlayers);
                     playerOne = new Human(Console.ReadLine());
@@ -51,19 +63,19 @@ namespace RockPaperScissorLizardSpock
                 }
                 else
                 {
-                    Console.WriteLine("Note: Invalid input.");
+                    Console.WriteLine("Enter 1 or 2 mang!\n");
                 }
             }
         }
 
         public void EnterName(string option)
         {
-            if (option.ToLower() == "a")
+            if (option.ToLower() == "1")
             {
                 Console.WriteLine("\n[Player Vs Computer]");
                 Console.WriteLine("Enter player one name:");
             }
-            else if (option.ToLower() == "b")
+            else if (option.ToLower() == "2")
             {
                 if (PlayerOneOrPlayerTwoScore == 0)
                 {
@@ -83,13 +95,13 @@ namespace RockPaperScissorLizardSpock
             do
             {
                 Winner(playerOne.Gesture(), playerTwo.Gesture());
-            } while ((playerOne.score < 2) && (playerTwo.score < 2));
+            } while ((playerOne.score < 3) && (playerTwo.score < 3));
 
-            if ((playerOne.score >= 2))
+            if ((playerOne.score >= 3))
             {
                 Console.WriteLine("\n" + playerOne.GetName() + " has won the game!");
             }
-            else if ((playerTwo.score <= 2))
+            else if ((playerTwo.score <= 3))
             {
                 Console.WriteLine("\n" + playerTwo.GetName() + " has won the game!");
             }
