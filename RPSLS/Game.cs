@@ -26,6 +26,55 @@ namespace RockPaperScissorLizardSpock
             Play();
         }
 
-        
+        public void Players()
+        {
+            bool continueLooping = true;
+            while (continueLooping)
+            {
+                Console.WriteLine("\nOne player or Two players? \n1) One \n2) Two");
+                numberOfPlayers= Console.ReadLine();
+                if (numberOfPlayers.ToLower() == "1")
+                {
+                    EnterName(numberOfPlayers);
+                    playerOne = new Human(Console.ReadLine());
+                    playerTwo = new Computer();
+                    continueLooping = false;
+                }
+                else if (numberOfPlayers.ToLower() == "b2")
+                {
+                    EnterName(numberOfPlayers);
+                    playerOne = new Human(Console.ReadLine());
+                    EnterName(numberOfPlayers);
+                    playerTwo = new Human(Console.ReadLine());
+                    continueLooping = false;
+                }
+                else
+                {
+                    Console.WriteLine("Note: Invalid input.");
+                }
+            }
+        }
+
+        public void EnterName(string option)
+        {
+            if (option.ToLower() == "a")
+            {
+                Console.WriteLine("\n[Player Vs Computer]");
+                Console.WriteLine("Enter player one name:");
+            }
+            else if (option.ToLower() == "b")
+            {
+                if (PlayerOneOrPlayerTwoMessageTracker == 0)
+                {
+                    PlayerOneOrPlayerTwoMessageTracker++;
+                    Console.WriteLine("\n[Player Vs Player]");
+                    Console.WriteLine("Enter player one name:");
+                }
+                else if (PlayerOneOrPlayerTwoMessageTracker == 1)
+                {
+                    Console.WriteLine("Enter player two name:");
+                }
+            }
+        }
     }
 }
