@@ -23,7 +23,7 @@ namespace RockPaperScissorLizardSpock
         {
             Console.WriteLine("--Welcome to RPSLS!--");
             Players();
-            Play();
+            PlayWinner();
         }
 
         public void Players()
@@ -73,6 +73,112 @@ namespace RockPaperScissorLizardSpock
                 else if (PlayerOneOrPlayerTwoMessageTracker == 1)
                 {
                     Console.WriteLine("Enter player two name:");
+                }
+            }
+        }
+
+        public void PlayWinner()
+        {
+            do
+            {
+                Winner(playerOne.Gesture(), playerTwo.Gesture());
+            } while ((playerOne.score < 2) && (playerTwo.score < 2));
+
+            if ((playerOne.score >= 2))
+            {
+                Console.WriteLine("\n" + playerOne.GetName() + " has won the game!");
+            }
+            else if ((playerTwo.score <= 2))
+            {
+                Console.WriteLine("\n" + playerTwo.GetName() + " has won the game!");
+            }
+        }
+
+        public void Winner(string playerOneGesture, string playerTwoGesture)
+        {
+            if (playerOneGesture == "rock")
+            {
+                if ((playerTwoGesture == "scissors") || (playerTwoGesture == "lizard"))
+                {
+                    Console.WriteLine("Winner: " + playerOne.GetName() + "!");
+                    playerOne.IncreaseScore();
+                }
+                else if (playerOneGesture == playerTwoGesture)
+                {
+                    Console.WriteLine("Tie");
+                }
+                else
+                {
+                    Console.WriteLine("Winner: " + playerTwo.GetName() + "!");
+                    playerTwo.IncreaseScore();
+                }
+            }
+            else if (playerOneGesture == "paper")
+            {
+                if ((playerTwoGesture == "rock") || (playerTwoGesture == "spock"))
+                {
+                    Console.WriteLine("Winner: " + playerOne.GetName() + "!");
+                    playerOne.IncreaseScore();
+                }
+                else if (playerOneGesture == playerTwoGesture)
+                {
+                    Console.WriteLine("Tie");
+                }
+                else
+                {
+                    Console.WriteLine("Winner: " + playerTwo.GetName() + "!");
+                    playerTwo.IncreaseScore();
+                }
+            }
+            else if (playerOneGesture == "scissors")
+            {
+                if ((playerTwoGesture == "paper") || (playerTwoGesture == "lizard"))
+                {
+                    Console.WriteLine("Winner: " + playerOne.GetName() + "!");
+                    playerOne.IncreaseScore();
+                }
+                else if (playerOneGesture == playerTwoGesture)
+                {
+                    Console.WriteLine("Tie");
+                }
+                else
+                {
+                    Console.WriteLine("Winner: " + playerTwo.GetName() + "!");
+                    playerTwo.IncreaseScore();
+                }
+            }
+            else if (playerOneGesture == "lizard")
+            {
+                if ((playerTwoGesture == "spock") || (playerTwoGesture == "paper"))
+                {
+                    Console.WriteLine("Winner: " + playerOne.GetName() + "!");
+                    playerOne.IncreaseScore();
+                }
+                else if (playerOneGesture == playerTwoGesture)
+                {
+                    Console.WriteLine("Tie");
+                }
+                else
+                {
+                    Console.WriteLine("Winner: " + playerTwo.GetName() + "!");
+                    playerTwo.IncreaseScore();
+                }
+            }
+            else if (playerOneGesture == "spock")
+            {
+                if ((playerTwoGesture == "scissors") || (playerTwoGesture == "rock"))
+                {
+                    Console.WriteLine("Winner: " + playerOne.GetName() + "!");
+                    playerOne.IncreaseScore();
+                }
+                else if (playerOneGesture == playerTwoGesture)
+                {
+                    Console.WriteLine("Tie");
+                }
+                else
+                {
+                    Console.WriteLine("Winner: " + playerTwo.GetName() + "!");
+                    playerTwo.IncreaseScore();
                 }
             }
         }
