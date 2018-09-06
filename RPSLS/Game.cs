@@ -13,7 +13,7 @@ namespace RockPaperScissorLizardSpock
         public Player playerTwo;
         public double winCondition;
         public string numberOfPlayers;
-        public double PlayerOneOrPlayerTwoMessageTracker;
+        public double PlayerOneOrPlayerTwoScore;
 
         public Game()
         {
@@ -65,13 +65,13 @@ namespace RockPaperScissorLizardSpock
             }
             else if (option.ToLower() == "b")
             {
-                if (PlayerOneOrPlayerTwoMessageTracker == 0)
+                if (PlayerOneOrPlayerTwoScore == 0)
                 {
-                    PlayerOneOrPlayerTwoMessageTracker++;
+                    PlayerOneOrPlayerTwoScore++;
                     Console.WriteLine("\n[Player Vs Player]");
                     Console.WriteLine("Enter player one name:");
                 }
-                else if (PlayerOneOrPlayerTwoMessageTracker == 1)
+                else if (PlayerOneOrPlayerTwoScore == 1)
                 {
                     Console.WriteLine("Enter player two name:");
                 }
